@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
+* online promotion management system in Ruby on Rails. 
 
-Things you may want to cover:
+## Features 
+- Winter discount for products(10% off for all Men's tShirts)
 
-* Ruby version
+- Nu. 100 off with a purchase of 3 football jerseys, Nu. 300 off if purchase > 5 Nos and 400 off if purchased beyond that
 
-* System dependencies
+- Add to cart 
 
-* Configuration
+- remove from cart
 
-* Database creation
+## Set-up
 
-* Database initialization
+* Ruby version - ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-darwin19]
 
-* How to run the test suite
+* Rails verion - Rails 6.1.3.1
 
-* Services (job queues, cache servers, search engines, etc.)
+* Database used - mysql
 
-* Deployment instructions
+* How to run the test suite  - rails s
 
-* ...
+## Gem used
+
+* devise - for authentication
+
+* pundit - for authorization 
+
