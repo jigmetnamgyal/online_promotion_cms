@@ -3,9 +3,9 @@ class Clothing < ApplicationRecord
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
     belongs_to :user, optional: true
 
-    validate :brand, :description, :type, :price, presence: true 
-    validate :price, numericality: {only_integer: true}, length: {maximum: 7}
+    validates :brand, :description, :type, :price, presence: true 
+    validates :price, numericality: {only_integer: true}, length: {maximum: 7}
 
-    BRAND = %w {Nike Gucci Adidas H&M Lungten JigmeBrand}
+    BRAND = %w{Nike Gucci Adidas H&M Lungten JigmeBrand}
     
 end

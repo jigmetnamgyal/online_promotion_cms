@@ -1,6 +1,15 @@
-<h1>Editing Clothing</h1>
+<% content_for :header do %>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Editing Clothing
+      </h1>
+    </div>
+  </div>
+</section>
+<% end %>
 
-<%= render 'form', clothing: @clothing %>
-
-<%= link_to 'Show', @clothing %> |
-<%= link_to 'Back', clothings_path %>
+<div class="pv4">
+  <%= render 'form', clothing: @clothing %>
+</div>

@@ -1,16 +1,56 @@
+    <%= simple_form_for @clothing, html: { multipart: true } do |f| %>
+      <%= f.error_notification %>
 
-<%= simple_form_for(@clothing) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :brand %>
-    <%= f.input :description %>
-    <%= f.input :type %>
-    <%= f.input :price %>
-  </div>
+        <div class="columns">
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+          <div class="field column is-9">
+            <div class="control">
+              <%= f.input :title , required: true, input_html: { class: "input"}, wrapper: false, label_html: { class:"label" } %>
+            </div>
+          </div>
+
+          <div class="field column">
+            <div class="control">
+              <%= f.input :price, required: true, input_html: { class:"input", maxlength: 7  }, wrapper: false, label_html: { class:"label" } %>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :description, required: true, input_html: { class:"textarea" }, wrapper: false, label_html: { class:"label" } %>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="field column is-4">
+            <div class="control">
+              <label class="label">Brand</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                  <%= f.input_field :brand, collection: Clothing::BRAND, prompt: "Select brand" %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-tag"></i>
+                </span>
+              </div>
+            </div>
+           </div>
+
+    
+       <div class="field">
+        <%= f.label :image%>
+        <%= f.file_field :image%>
+       </div>
+        <hr />
+
+        <div class="field is-grouped">
+          <div class="control">
+            <%= f.button :submit, class: 'button is-warning' %>
+            <%= link_to 'Cancel', clothings_path, class:'button is-light' %>
+          </div>
+        </div>
+
+      <% end %>

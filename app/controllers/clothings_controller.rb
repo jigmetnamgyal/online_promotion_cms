@@ -1,9 +1,9 @@
 class ClothingsController < ApplicationController
   before_action :set_clothing, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /clothings or /clothings.json
   def index
-    @clothings = Clothing.all
+    @clothings = Clothing.all.order("created_at DESC")
   end
 
   # GET /clothings/1 or /clothings/1.json
@@ -12,7 +12,7 @@ class ClothingsController < ApplicationController
 
   # GET /clothings/new
   def new
-    @clothing = Clothing.new
+    @clothing = current_user.clothings.build
   end
 
   # GET /clothings/1/edit
@@ -21,7 +21,7 @@ class ClothingsController < ApplicationController
 
   # POST /clothings or /clothings.json
   def create
-    @clothing = Clothing.new(clothing_params)
+    @clothing = current_user.clothings.build(clothing_params)
 
     respond_to do |format|
       if @clothing.save
@@ -64,6 +64,6 @@ class ClothingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def clothing_params
-      params.require(:clothing).permit(:brand, :description, :type, :price)
+      params.require(:clothing).permit(:brand, :description, :type, :price, :image, :title)
     end
 end
