@@ -1,4 +1,6 @@
 class ListItemsController < ApplicationController
+  include CurrentCart
+  before_action :set_cart, only: [:create]
   before_action :set_list_item, only: %i[ show edit update destroy ]
 
   # GET /list_items or /list_items.json
@@ -21,11 +23,12 @@ class ListItemsController < ApplicationController
 
   # POST /list_items or /list_items.json
   def create
-    @list_item = ListItem.new(list_item_params)
+    @clothing = Clothing.find(params[:clothing_id])
+    @list_item = @cart.add_clothing(list_item_params)
 
     respond_to do |format|
       if @list_item.save
-        format.html { redirect_to @list_item, notice: "List item was successfully created." }
+        format.html { redirect_to @list_item, notice: "Item added successfully to the cart." }
         format.json { render :show, status: :created, location: @list_item }
       else
         format.html { render :new, status: :unprocessable_entity }
