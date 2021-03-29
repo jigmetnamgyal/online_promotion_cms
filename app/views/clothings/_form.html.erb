@@ -1,6 +1,7 @@
+<div class="columns">
+  <div class="column is-8 is-centered">
     <%= simple_form_for @clothing, html: { multipart: true } do |f| %>
       <%= f.error_notification %>
-
 
         <div class="columns">
 
@@ -39,11 +40,20 @@
             </div>
            </div>
 
-    
-       <div class="field">
-        <%= f.label :image%>
-        <%= f.file_field :image%>
-       </div>
+        <div class="field">
+          <div class="control">
+            <label class="label">Add images</label>
+              <div class="file">
+              <label class="file-label">
+                <%= f.input :image, as: :file, input_html: { class:"file-input clothings-image" }, label: false, wrapper: false %>
+                  <span class="file-cta">
+                    <span class="file-icon"><i class="fa fa-upload"></i></span>
+                    <span class="file-label">Choose a file…</span>
+                  </span>
+              </label>
+              </div>
+            </div>
+          </div>
         <hr />
 
         <div class="field is-grouped">
@@ -54,3 +64,5 @@
         </div>
 
       <% end %>
+  </div>
+</div>
