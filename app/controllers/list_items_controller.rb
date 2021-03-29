@@ -1,7 +1,7 @@
 class ListItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
   before_action :set_list_item, only: %i[ show edit update destroy ]
+  before_action :set_cart, only: [:create]
 
   # GET /list_items or /list_items.json
   def index
@@ -23,12 +23,12 @@ class ListItemsController < ApplicationController
 
   # POST /list_items or /list_items.json
   def create
-    @clothing = Clothing.find(params[:clothing_id])
-    @list_item = @cart.add_clothing(list_item_params)
+    clothing = Clothing.find(params[:clothing_id])
+    @list_item = @cart.add_clothing(clothing)
 
     respond_to do |format|
       if @list_item.save
-        format.html { redirect_to @list_item, notice: "Item added successfully to the cart." }
+        format.html { redirect_to @list_item.cart, notice: "Item added successfully to the cart." }
         format.json { render :show, status: :created, location: @list_item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,9 +52,10 @@ class ListItemsController < ApplicationController
 
   # DELETE /list_items/1 or /list_items/1.json
   def destroy
+    @cart = Card.find(session[:cart_id])
     @list_item.destroy
     respond_to do |format|
-      format.html { redirect_to list_items_url, notice: "List item was successfully destroyed." }
+      format.html { redirect_to cart_path(@cart), notice: "List item was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -67,6 +68,6 @@ class ListItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def list_item_params
-      params.require(:list_item).permit(:clothing, :cart_id)
+      params.require(:list_item).permit(:clothing_id)
     end
 end

@@ -31,7 +31,7 @@
             <h4 class="title1"><%= number_to_currency(@clothing.price) %></h4>
             <p class="text-sold">Sold by
                 <%= @clothing.user.name %></p>
-            <%= button_to 'Add to cart', "#", class:
+            <%= button_to 'Add to cart', list_items_path(clothing_id: @clothing), class:
             'button is-warning add-to-cart' %>
         </div>
     </div>
