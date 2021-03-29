@@ -26,5 +26,10 @@
 
 * devise - for authentication
 
-* pundit - for authorization 
+* simple_form
+
+* bulma
+
+* pencil_clip
+
 
