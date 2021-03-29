@@ -1,24 +1,38 @@
-<p id="notice"><%= notice %></p>
+<% content_for :body_class, 'bg-light' %>
+    <p id="notice"><%= notice %></p>
+    <%= image_tag(@clothing.image.url(:medium))%>
+    <p>
+        <strong>Brand:</strong>
+        <%= @clothing.brand %>
+    </p>
 
-<p>
-  <strong>Brand:</strong>
-  <%= @clothing.brand %>
-</p>
+    <p>
+        <strong>Description:</strong>
+        <%= @clothing.description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @clothing.description %>
-</p>
+    <p>
+        <strong>Type:</strong>
+        <%= @clothing.type %>
+    </p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @clothing.type %>
-</p>
+    <p>
+        <strong>Price:</strong>
+        <%= @clothing.price %>
+    </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @clothing.price %>
-</p>
-
-<%= link_to 'Edit', edit_clothing_path(@clothing) %> |
-<%= link_to 'Back', clothings_path %>
+    <%if clothing_author(@clothing)%>
+        <%= link_to 'Edit', edit_clothing_path(@clothing) %>
+        |
+    <%end%>
+    <%= link_to 'Back', clothings_path %>
+    <div class="column1">
+        <div class="bg-white">
+            <h4 class="title1"><%= number_to_currency(@clothing.price) %></h4>
+            <p class="text-sold">Sold by
+                <%= @clothing.user.name %></p>
+            <%= button_to 'Add to cart', "#", class:
+            'button is-warning add-to-cart' %>
+        </div>
+    </div>
+    <% content_for :body_class%>

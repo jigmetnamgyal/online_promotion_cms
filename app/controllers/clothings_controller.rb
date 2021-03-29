@@ -67,3 +67,4 @@ class ClothingsController < ApplicationController
       params.require(:clothing).permit(:brand, :description, :type, :price, :image, :title)
     end
 end
+
