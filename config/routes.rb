@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clothings
   root 'store#index'
 
   devise_for :users, controllers: {
