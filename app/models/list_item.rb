@@ -13,5 +13,4 @@ class ListItem < ApplicationRecord
       (clothing.price.to_i * quantity.to_i)
     end
   end
-  end
 end
