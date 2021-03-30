@@ -1,11 +1,12 @@
 module ApplicationHelper
     def cart_plusplus
         if @cart.list_items.count > 0
-            return "<span class='tag is-dark'>#{@cart.list_items.count}<span>".html_safe
+            return total_cart_items if total_cart_items > 0
         end
     end
 
-    def cart_has_items
-        return @cart.list_items.count > 0
-    end
+    def total_cart_items
+        total = @cart.list_items.map(&:quantity).sum
+        return total if total > 0
+    end 
 end
