@@ -48,6 +48,7 @@
               <% end %>
             <% end %>
             <% if user_signed_in? %>
+            <%= image_tag(current_user.image.url(:thumb))%>
               <%= link_to 'Sell', new_clothing_path, class: "navbar-item button is-dark" %>
 
               <div class="navbar-item has-dropdown is-hoverable">
