@@ -2,14 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.pv4{
-    padding-top: 80px;
-    padding-bottom: 80px;
+// .pv4{
+//     padding-top: 80px;
+//     padding-bottom: 80px;
+// }
+.image1{
+    width: 200px !important;
+    height: 200px !important;
+}
+.cloth_title{
+    font-size: 20px;
+}
+.clothing{
+    display: flex;
+    width: 250px;
+    margin-top: 50px;
+    display: flex;
+}
+.price12{
+    color: gray;
+}
+.pa3{
+    width: 250px;
 }
 
-.clothing_container{
-   width: 300px;
+.hero{
+    background-color: #273773;
+    margin-bottom: 20px;
 }
-.column1{
-    margin-top: 20px;
+.title1{
+    color: white !important;
+    font-size: 30px;
 }
+.btn-container{
+    margin-bottom: 50px;
+}
+

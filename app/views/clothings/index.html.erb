@@ -1,8 +1,8 @@
 <% content_for :header do%>
-<section class="hero is-warning">
+<section class="hero">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
+      <h1 class="title1">
         Browse the product to buy.
       </h1>
     </div>
@@ -10,27 +10,22 @@
 </section>
 <%end%>
 
-<div class="clothings_grid">
+<div class="clothingsContainer">
   <% @clothings.each do |cloth|%>
-  <div class="clothing_container">
   <div class="clothing border-light">
     <%= link_to image_tag(cloth.image.url(:medium)), cloth %>
   </div>
 
   <div class="pa3">
-
-      <h3 class="fw7 f4 title"><%= link_to cloth.title, cloth %></h3>
-
-      <p class="has-text-gray fg pt1">Sold by <%= cloth.user.name %></p>
-
-      <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(cloth.price) %></p>
-
+      <h3 class="cloth_title"><%= link_to cloth.title, cloth %></h3>
+      <p class="has-text-gray">Sold by <%= cloth.user.name %></p>
+      <p class="price12"><%= number_to_currency(cloth.price) %></p>
       <% if clothing_author(cloth) %>
+      <div class="btn-container">
          <%= link_to 'Edit', edit_clothing_path(cloth), class: "button is-small" %>
          <%= link_to 'Delete', cloth, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
+         </div>
       <% end %>
         <%end%>
-
-    </div>
     </div>
 </div>

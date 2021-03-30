@@ -28,7 +28,7 @@
     <%= link_to 'Back', clothings_path %>
     <div class="column1">
         <div class="bg-white">
-            <h4 class="title1"><%= number_to_currency(@clothing.price) %></h4>
+            <h4 class="title"><%= number_to_currency(@clothing.price) %></h4>
             <p class="text-sold">Sold by
                 <%= @clothing.user.name %></p>
             <%= button_to 'Add to cart', list_items_path(clothing_id: @clothing), class:
