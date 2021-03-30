@@ -37,16 +37,17 @@
           <div class="navbar-item">
             <div class="field is-grouped">
 
-            <% if total_cart_items %>
+           
+            <% if user_signed_in? %>
+           
+            <%= image_tag(current_user.image.url(:medium))%>
+             <% if total_cart_items %>
               <%= link_to cart_path(@cart), class:"navbar-item button" do %>
                <span class="cartBox">Cart
                 <%= cart_plusplus %>
                 </span>
               <% end %>
             <% end %>
-            <% if user_signed_in? %>
-           
-            <%= image_tag(current_user.image.url(:medium))%>
               <%= link_to 'Sell', new_clothing_path, class: "navbar-item button is-dark" %>
 
               <div class="navbar-item has-dropdown is-hoverable">

@@ -28,9 +28,12 @@
  .keep-shopping{
      margin-top: 50px;
  }
-.navbar-brand{
+.navbar{
     background-color: #273773;
 }
-.logo{
+.logo, .navbar-link{
     color: white;
+}
+.navbar-link:hover{
+    color: black !important;
 }
