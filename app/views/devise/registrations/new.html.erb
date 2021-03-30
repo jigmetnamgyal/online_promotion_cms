@@ -6,7 +6,7 @@
 
     <h2 class="title is-2">Sign Up</h2>
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true }) do |f| %>
     <%= f.error_notification %>
 
     <div class="field">
@@ -14,6 +14,17 @@
       <%= f.input :name, required: true, autofocus: true, input_html: { class:"input" }, wrapper: false, label_html: { class:"label" } %>
       </div>
     </div>
+    <br />
+  <p>Profile Pic</p>
+    <label class="file-label">
+       <%= f.input :image, as: :file, input_html: { class:"file-input clothings-image" }, label: false, wrapper: false %>
+        <span class="file-cta">
+          <span class="file-icon"><i class="fa fa-upload"></i></span>
+          <span class="file-label">Choose a file…</span>
+          </span>
+    </label>
+    <br />
+    <br />
 
     <div class="field">
       <div class="control">
