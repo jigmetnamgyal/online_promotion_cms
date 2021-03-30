@@ -36,4 +36,6 @@
 
 * paperclip - for image upload and download
 
+* pundit for authorization
+
 
