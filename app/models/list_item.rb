@@ -10,7 +10,7 @@ class ListItem < ApplicationRecord
     elsif quantity.to_i >= 7
       (clothing.price.to_i * quantity.to_i) - 400
     elsif clothing.brand == "H&M"
-      (clothing.price.to_i * quantity.to_i) - (0.3 * (clothing.price.to_i * quantity.to_i))
+      (clothing.price.to_i * quantity.to_i) - (0.1 * (clothing.price.to_i * quantity.to_i))
     else
       (clothing.price.to_i * quantity.to_i)
     end

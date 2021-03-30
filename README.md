@@ -4,13 +4,15 @@
 * online promotion management system in Ruby on Rails. 
 
 ## Features 
-- Winter discount for products(10% off for all Men's tShirts)
+- Winter discount for products bought with the brand name H&M(10% off for all H&M brand)
 
-- Nu. 100 off with a purchase of 3 football jerseys, Nu. 300 off if purchase > 5 Nos and 400 off if purchased beyond that
+- Nu. 100 off with a purchase of > 3 cloths, Nu. 300 off if purchase 5-6 Nos and 400 off if purchased beyond that
 
 - Add to cart 
 
 - remove from cart
+
+- profile pic upload
 
 ## Set-up
 
@@ -28,8 +30,8 @@
 
 * simple_form
 
-* bulma
+* bulma - for styling
 
-* pencil_clip
+* paperclip - for image upload and download
 
 
