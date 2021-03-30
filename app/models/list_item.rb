@@ -5,9 +5,9 @@ class ListItem < ApplicationRecord
   def total_price
     if quantity.to_i >= 3 && quantity.to_i < 5
       (clothing.price.to_i * quantity.to_i) - 100
-    elsif quantity.to_i >= 5 && quantity.to_i > 3
+    elsif quantity.to_i >= 5 && quantity.to_i > 7
       (clothing.price.to_i * quantity.to_i) - 300
-    elsif quantity.to_i >= 5
+    elsif quantity.to_i >= 7
       (clothing.price.to_i * quantity.to_i) - 400
     else
       (clothing.price.to_i * quantity.to_i)
