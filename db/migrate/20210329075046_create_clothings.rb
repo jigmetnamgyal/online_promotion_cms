@@ -3,7 +3,7 @@ class CreateClothings < ActiveRecord::Migration[6.1]
     create_table :clothings do |t|
       t.string :brand
       t.text :description
-      t.string :type
+      t.string :type1
       t.decimal :price
 
       t.timestamps

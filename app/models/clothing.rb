@@ -1,5 +1,5 @@
 class Clothing < ApplicationRecord
-    before_destroy :not_referenced_by_any_line_item
+    before_destroy :not_referenced_by_any_list_item
     belongs_to :user, optional: true
     has_many :list_items
     
