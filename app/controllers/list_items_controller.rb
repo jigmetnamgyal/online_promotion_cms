@@ -52,7 +52,7 @@ class ListItemsController < ApplicationController
 
   # DELETE /list_items/1 or /list_items/1.json
   def destroy
-    @cart = Card.find(session[:cart_id])
+    @cart = Cart.find(session[:cart_id])
     @list_item.destroy
     respond_to do |format|
       format.html { redirect_to cart_path(@cart), notice: "List item was successfully destroyed." }
